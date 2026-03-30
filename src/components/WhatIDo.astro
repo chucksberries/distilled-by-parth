@@ -1,49 +1,84 @@
 ---
-import { getCollection } from "astro:content";
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-import FormattedDate from "@/components/FormattedDate.astro";
 import { Icon } from "astro-icon/components";
+
+const sectionA = [
+  {
+    icon: "1",
+    title: "General Trivia",
+    description: "Pop culture, Bollywood, movies, music, sports. Light, fun, something for everyone.",
+  },
+  {
+    icon: "2",
+    title: "World Affairs",
+    description: "Current events, history, geopolitics. The kind of content that makes you sound smart at work.",
+  },
+  {
+    icon: "3",
+    title: "Your Company Round",
+    description: "One round completely tailored to your industry, your company, your team. Makes it personal.",
+  },
+];
+
+const sectionB = [
+  {
+    icon: "4",
+    title: "The Call",
+    description: "We get on a quick call. You tell me about your team, vibe, language preference, difficulty level, any themes you want included.",
+  },
+  {
+    icon: "5",
+    title: "The Build",
+    description: "I build the quiz around your team. The right mix of fun trivia, world affairs, and one round tailored to your company.",
+  },
+  {
+    icon: "beach",
+    title: "The Event",
+    description: "We show up — your office, your venue, wherever works. 60 minutes. Laughs guaranteed.",
+  },
+];
 
 const bgClasses = [
   "bg-pgreen rounded-full",
   "bg-pblue rounded-2xl",
-  "bg-ppink ",
+  "bg-ppink",
   "bg-pyellow rounded-md",
 ];
-
-const getRandomClass = () => {
-  return bgClasses[Math.floor(Math.random() * bgClasses.length)];
-};
 ---
 
-<section class="flex flex-col items-center text-center gap-4">
-  <p class="text-pblack">It is necessary to observe.</p>
-  <h2 class="text-4xl font-bold">Treated like a portrait.</h2>
-  <ul
-    class="flex flex-wrap max-w-[940px] mx-auto justify-center md:justify-start gap-8 py-20 "
-  >
+<!-- Section A: What's in the quiz? -->
+<section class="flex flex-col items-center text-center gap-4 py-10">
+  <p class="text-pblack">What's in the quiz?</p>
+  <h2 class="text-4xl font-bold">Three flavours. One unforgettable evening.</h2>
+  <ul class="flex flex-wrap max-w-[940px] mx-auto justify-center md:justify-start gap-8 py-20">
     {
-      posts.map((post) => {
-        const randomClass = getRandomClass();
-        return (
-          <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-6 flex flex-col gap-6">
-            <a aria-label={post.data.title} href={`/blog/${post.id}/`} class="flex flex-col gap-4">
-              <div
-                class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
-              >
-                <Icon name={post.data.icon} />
-              </div>
-              <h2 class="text-xl font-semibold">{post.data.title}</h2>
-              <p class="date -mt-4 text-sm font-light">
-                <FormattedDate date={post.data.pubDate} />
-              </p>
-            </a>
-            <div set:html={post.data.description} />
-          </li>
-        );
-      })
+      sectionA.map((card, i) => (
+        <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition px-4 py-6 flex flex-col gap-6">
+          <div class={`${bgClasses[i % bgClasses.length]} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}>
+            <Icon name={card.icon} />
+          </div>
+          <h2 class="text-xl font-semibold">{card.title}</h2>
+          <p>{card.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<!-- Section B: The process -->
+<section class="flex flex-col items-center text-center gap-4 py-10">
+  <p class="text-pblack">The process</p>
+  <h2 class="text-4xl font-bold">How I design the quiz.</h2>
+  <ul class="flex flex-wrap max-w-[940px] mx-auto justify-center md:justify-start gap-8 py-20">
+    {
+      sectionB.map((card, i) => (
+        <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition px-4 py-6 flex flex-col gap-6">
+          <div class={`${bgClasses[(i + 1) % bgClasses.length]} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}>
+            <Icon name={card.icon} />
+          </div>
+          <h2 class="text-xl font-semibold">{card.title}</h2>
+          <p>{card.description}</p>
+        </li>
+      ))
     }
   </ul>
 </section>

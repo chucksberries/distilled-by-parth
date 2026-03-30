@@ -1,0 +1,78 @@
+---
+---
+
+<section id="contact" class="flex flex-col items-center text-center gap-8 py-20 px-4">
+  <h2 class="text-4xl font-bold">Let's organise your quiz.</h2>
+  <form
+    action="mailto:parth@marsify.io"
+    method="POST"
+    enctype="text/plain"
+    class="flex flex-col gap-6 w-full max-w-xl text-left"
+  >
+    <div class="flex flex-col gap-2">
+      <label for="fullName" class="font-semibold">Full Name</label>
+      <input
+        type="text"
+        id="fullName"
+        name="Full Name"
+        required
+        class="border-1 border-black rounded-lg px-4 py-3 bg-white shadow-card focus:shadow-hover transition outline-none"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="companyName" class="font-semibold">Company Name</label>
+      <input
+        type="text"
+        id="companyName"
+        name="Company Name"
+        required
+        class="border-1 border-black rounded-lg px-4 py-3 bg-white shadow-card focus:shadow-hover transition outline-none"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="teamSize" class="font-semibold">Team Size</label>
+      <select
+        id="teamSize"
+        name="Team Size"
+        required
+        class="border-1 border-black rounded-lg px-4 py-3 bg-white shadow-card focus:shadow-hover transition outline-none"
+      >
+        <option value="" disabled selected>Select team size</option>
+        <option value="Up to 20">Up to 20</option>
+        <option value="20 to 50">20 to 50</option>
+        <option value="50+">50+</option>
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="preferredMonth" class="font-semibold">Preferred Month</label>
+      <input
+        type="text"
+        id="preferredMonth"
+        name="Preferred Month"
+        placeholder="e.g. April 2026"
+        class="border-1 border-black rounded-lg px-4 py-3 bg-white shadow-card focus:shadow-hover transition outline-none"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="specialRequests" class="font-semibold">Any special requests?</label>
+      <textarea
+        id="specialRequests"
+        name="Special Requests"
+        rows="4"
+        placeholder="Themes, languages, dietary requirements for the team, etc."
+        class="border-1 border-black rounded-lg px-4 py-3 bg-white shadow-card focus:shadow-hover transition outline-none resize-none"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="bg-pgreen px-5 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition font-semibold self-start"
+    >
+      Send Request
+    </button>
+  </form>
+</section>
