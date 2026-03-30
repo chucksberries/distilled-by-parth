@@ -47,12 +47,12 @@ const bgClasses = [
 
 <!-- Section A: What's in the quiz? -->
 <section class="flex flex-col items-center text-center gap-4 py-10">
-  <p class="text-pblack">What's in the quiz?</p>
-  <h2 class="text-4xl font-bold">Three flavours. One unforgettable evening.</h2>
+  <p class="text-pblack" data-anim="fade-up">What's in the quiz?</p>
+  <h2 class="text-4xl font-bold" data-anim="fade-up" data-delay="100">Three flavours. One unforgettable evening.</h2>
   <ul class="flex flex-wrap max-w-[940px] mx-auto justify-center md:justify-start gap-8 py-20">
     {
       sectionA.map((card, i) => (
-        <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition px-4 py-6 flex flex-col gap-6">
+        <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition px-4 py-6 flex flex-col gap-6" data-anim="card" data-delay={i * 150}>
           <div class={`${bgClasses[i % bgClasses.length]} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}>
             <Icon name={card.icon} />
           </div>
@@ -66,12 +66,12 @@ const bgClasses = [
 
 <!-- Section B: The process -->
 <section class="flex flex-col items-center text-center gap-4 py-10">
-  <p class="text-pblack">The process</p>
-  <h2 class="text-4xl font-bold">How I design the quiz.</h2>
+  <p class="text-pblack" data-anim="fade-up">The process</p>
+  <h2 class="text-4xl font-bold" data-anim="fade-up" data-delay="100">How I design the quiz.</h2>
   <ul class="flex flex-wrap max-w-[940px] mx-auto justify-center md:justify-start gap-8 py-20">
     {
       sectionB.map((card, i) => (
-        <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition px-4 py-6 flex flex-col gap-6">
+        <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition px-4 py-6 flex flex-col gap-6" data-anim="card" data-delay={i * 150}>
           <div class={`${bgClasses[(i + 1) % bgClasses.length]} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}>
             <Icon name={card.icon} />
           </div>
