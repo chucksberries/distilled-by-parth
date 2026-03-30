@@ -1,7 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import { Picture } from "astro:assets";
-import img from "/src/assets/parth.png";
 ---
 
 <section
@@ -43,12 +41,10 @@ import img from "/src/assets/parth.png";
           <p>Parth Sharma</p>
         </div>
         <div class="h-80 w-60 overflow-hidden relative -mt-30 rounded-2xl border-3 border-black shadow-card group-hover:shadow-hover transition">
-          <Picture
-            class="w-full h-full object-cover group-hover:scale-105 transition" style="object-position: 40% 0%"
-            src={img}
-            format="webp"
-            sizes="(max-width: 300px) 100vw, 600px"
-            widths={[300, 600]}
+          <img
+            class="w-full h-full object-cover group-hover:scale-105 transition"
+            style="object-position: 40% 0%"
+            src="/parth.png"
             alt="Parth Sharma in Tbilisi"
           />
         </div>
