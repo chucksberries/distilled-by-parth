@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 110" fill="none">
+  <!-- Jug top ring -->
+  <rect x="27" y="2" width="26" height="7" rx="3.5" fill="#4BBFD6"/>
+  <!-- Jug body -->
+  <rect x="18" y="8" width="44" height="42" rx="6" fill="#A8C8E8"/>
+  <!-- Jug bottom ring -->
+  <rect x="18" y="46" width="44" height="7" rx="3.5" fill="#4BBFD6"/>
+  <!-- Jug highlight -->
+  <rect x="27" y="14" width="7" height="24" rx="3.5" fill="white" opacity="0.45"/>
+  <!-- Neck -->
+  <rect x="28" y="52" width="24" height="8" rx="3" fill="#4BBFD6"/>
+  <!-- Dispenser body -->
+  <rect x="10" y="58" width="60" height="44" rx="8" fill="#E8EDF2"/>
+  <!-- Grey band -->
+  <rect x="10" y="69" width="60" height="9" fill="#B8C4CC"/>
+  <!-- Left button -->
+  <rect x="18" y="84" width="18" height="9" rx="4" fill="#4A78C8"/>
+  <rect x="23" y="93" width="8" height="7" rx="2" fill="#2C55A0"/>
+  <!-- Right button -->
+  <rect x="44" y="84" width="18" height="9" rx="4" fill="#4A78C8"/>
+  <rect x="49" y="93" width="8" height="7" rx="2" fill="#2C55A0"/>
+  <!-- Base -->
+  <rect x="25" y="102" width="30" height="6" rx="3" fill="#B8C4CC"/>
+</svg>
