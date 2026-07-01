@@ -48,12 +48,34 @@ import Footer from "@/components/Footer.astro";
           Your boss knows about it. Your client mentioned it. Your colleague brought it up in passing.<br/><br/>Now you will too.
         </p>
 
-        <!-- Beehiiv signup form -->
-        <div class="w-full max-w-lg mt-2">
-          <script is:inline async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="bb3975f0-50a6-4913-ab7d-3088abd75e80"></script>
+        <!-- Signup form -->
+        <div id="form-wrap" class="w-full max-w-lg mt-2 flex flex-col gap-3">
+          <form id="signup-form" class="flex flex-col gap-3 w-full">
+            <input type="hidden" name="access_key" value="32f5d2a9-2bd0-4007-a279-04a1db584701" />
+            <input type="hidden" name="subject" value="New Water Cooler News Signup" />
+            <input
+              type="email"
+              id="signup-email"
+              placeholder="your@email.com"
+              required
+              class="w-full border-1 border-white/20 rounded-xl px-5 py-4 bg-white/10 text-white placeholder:text-white/40 focus:bg-white/15 focus:border-white/40 transition outline-none font-jakarta text-base"
+            />
+            <button
+              type="submit"
+              class="w-full bg-pyellow text-black px-6 py-4 rounded-xl font-bold font-jakarta text-base hover:brightness-105 transition"
+            >
+              Get me in the loop →
+            </button>
+          </form>
+          <p class="text-xs font-jakarta text-white/40 font-medium">Free. No spam. Unsubscribe anytime. Launching at 300 subscribers.</p>
         </div>
 
-        <p class="text-xs font-jakarta text-white/40 font-medium">Free. No spam. Unsubscribe anytime. Launching at 300 subscribers.</p>
+        <!-- Success state (hidden until submit) -->
+        <div id="success-wrap" class="hidden w-full max-w-lg mt-2 bg-pyellow text-black rounded-2xl px-8 py-10 flex flex-col items-center gap-3 text-center">
+          <span class="text-4xl">🎉</span>
+          <p class="font-instrument text-3xl font-normal">You're in.</p>
+          <p class="font-jakarta text-sm font-medium opacity-70">We'll land in your inbox 2–3 times a week. Watch for us.</p>
+        </div>
       </section>
 
       <!-- Divider -->
@@ -162,3 +184,25 @@ import Footer from "@/components/Footer.astro";
     <Footer />
   </body>
 </html>
+
+<script>
+  const form = document.getElementById('signup-form') as HTMLFormElement;
+  const formWrap = document.getElementById('form-wrap') as HTMLElement;
+  const successWrap = document.getElementById('success-wrap') as HTMLElement;
+  const emailInput = document.getElementById('signup-email') as HTMLInputElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('access_key', '32f5d2a9-2bd0-4007-a279-04a1db584701');
+    data.append('subject', 'New Water Cooler News Signup');
+    data.append('Email', emailInput.value);
+
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    if (res.ok) {
+      formWrap.classList.add('hidden');
+      successWrap.classList.remove('hidden');
+      successWrap.classList.add('flex');
+    }
+  });
+</script>
